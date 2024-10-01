@@ -75,3 +75,11 @@ nav ul {
 nav ul li {
     margin: 0 10px;
 }
+
+/* Media query for mobile portrait view */
+@media (max-width: 480px) {
+    nav ul li a {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
