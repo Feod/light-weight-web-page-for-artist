@@ -29,3 +29,9 @@ img {
     position: absolute;
     z-index: -1;
 }
+
+.center-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
