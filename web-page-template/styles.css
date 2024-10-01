@@ -12,3 +12,10 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
 }
+
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
