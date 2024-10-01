@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
             contentElement.innerHTML = document.getElementById('about').innerHTML;
         } else if (section === 'store') {
             contentElement.innerHTML = document.getElementById('store').innerHTML;
+        } else if (section === 'blog') {
+            fetchTumblrBlogFeed();
         }
     }
 
@@ -36,4 +38,31 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('store-link').addEventListener('click', function() {
         updateContent('store');
     });
+
+    document.getElementById('blog-link').addEventListener('click', function() {
+        updateContent('blog');
+    });
+
+    // Function to fetch and display Tumblr blog feed
+    function fetchTumblrBlogFeed() {
+        const blogContentElement = document.getElementById('blog-content');
+        const apiKey = 'YOUR_TUMBLR_API_KEY';
+        const blogIdentifier = 'YOUR_TUMBLR_BLOG_IDENTIFIER';
+        const url = `https://api.tumblr.com/v2/blog/${blogIdentifier}/posts?api_key=${apiKey}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const posts = data.response.posts;
+                let blogContent = '';
+                posts.forEach(post => {
+                    blogContent += `<h3>${post.title}</h3><p>${post.body}</p>`;
+                });
+                blogContentElement.innerHTML = blogContent;
+            })
+            .catch(error => {
+                console.error('Error fetching Tumblr blog feed:', error);
+                blogContentElement.innerHTML = '<p>Failed to load blog feed. Please try again later.</p>';
+            });
+    }
 });

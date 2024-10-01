@@ -32,3 +32,15 @@ A new branch named `blog-feature` has been created for the blog feature. To swit
 ```
 git checkout blog-feature
 ```
+
+## Configuring the Tumblr Blog Feed
+
+To configure the Tumblr blog feed, follow these steps:
+
+1. Obtain a Tumblr API key from the [Tumblr API](https://www.tumblr.com/docs/en/api/v2) website.
+2. Replace `YOUR_TUMBLR_API_KEY` in `web-page-template/script.js` with your actual Tumblr API key.
+3. Replace `YOUR_TUMBLR_BLOG_IDENTIFIER` in `web-page-template/script.js` with your Tumblr blog identifier.
+
+## Using the Blog Section
+
+The blog section is included in the `index.html` file with an id of `blog`. To view the blog feed, click on the "Blog" link in the navigation menu. The blog feed will be fetched and displayed in the `blog` section.
