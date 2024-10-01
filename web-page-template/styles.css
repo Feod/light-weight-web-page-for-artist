@@ -65,3 +65,13 @@ nav ul li a:hover {
     border: 1px solid #ccc;
     background-color: #fff;
 }
+
+/* Add styles to make category buttons appear horizontally */
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
