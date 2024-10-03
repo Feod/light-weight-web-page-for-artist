@@ -26,21 +26,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call the additionalFunctionality function
     additionalFunctionality();
 
+    // Function to handle menu button selection
+    function handleMenuSelection(event) {
+        // Remove 'selected' class from all menu buttons
+        const menuButtons = document.querySelectorAll('nav ul li a');
+        menuButtons.forEach(button => {
+            button.classList.remove('selected');
+        });
+
+        // Add 'selected' class to the clicked menu button
+        event.target.classList.add('selected');
+    }
+
     // Add event listeners for navigation links
-    document.getElementById('home-link').addEventListener('click', function() {
+    document.getElementById('home-link').addEventListener('click', function(event) {
         updateContent('home');
+        handleMenuSelection(event);
     });
 
-    document.getElementById('about-link').addEventListener('click', function() {
+    document.getElementById('about-link').addEventListener('click', function(event) {
         updateContent('about');
+        handleMenuSelection(event);
     });
 
-    document.getElementById('store-link').addEventListener('click', function() {
+    document.getElementById('store-link').addEventListener('click', function(event) {
         updateContent('store');
+        handleMenuSelection(event);
     });
 
-    document.getElementById('blog-link').addEventListener('click', function() {
+    document.getElementById('blog-link').addEventListener('click', function(event) {
         updateContent('blog');
+        handleMenuSelection(event);
     });
 
     // Function to fetch and display Tumblr blog feed
