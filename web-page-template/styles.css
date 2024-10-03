@@ -9,25 +9,26 @@ body {
 }
 
 #content {
-    width: 80%;
+    width: 80vw;
     margin: 0 auto;
-    padding: 20px;
+    padding: 2vh;
     border: 1px solid #ccc;
 }
 
 img {
     display: block;
-    margin: 20px auto;
-    max-width: 100%;
+    margin: 2vh auto;
+    max-width: 100vw;
     height: auto;
 }
 
 .background {
     background-image: url('bg512.png');
     background-repeat: repeat;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     z-index: -1;
 }
@@ -35,7 +36,9 @@ img {
 .center-image {
     display: block;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 100vw;
+    object-fit: contain;
+    object-position: center;
 }
 
 nav ul {
@@ -46,15 +49,15 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 1vw;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 1vh 2vw;
+    font-size: 1.8vh;
 }
 
 nav ul li a:hover {
@@ -67,35 +70,35 @@ nav ul li a.selected {
 
 #about, #store {
     display: none;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
+    width: 80vw;
+    margin: 2vh auto;
+    padding: 2vh;
     border: 1px solid #ccc;
     background-color: #fff;
 }
 
 #blog {
     display: none;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
+    width: 80vw;
+    margin: 2vh auto;
+    padding: 2vh;
     border: 1px solid #ccc;
     background-color: #fff;
 }
 
 #blog h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 2.4vh;
+    margin-bottom: 1vh;
 }
 
 #blog-content h3 {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-size: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
 }
 
 #blog-content p {
-    font-size: 16px;
+    font-size: 1.6vh;
     line-height: 1.5;
 }
 
@@ -106,46 +109,45 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0 1vw;
 }
 
-/* Media query for mobile portrait view */
-@media (max-width: 480px) {
+/* Media query for aspect ratio */
+@media (aspect-ratio: 16/9) {
     nav ul li a {
-        padding: 10px 20px;
-        font-size: 18px;
+        padding: 1vh 2vw;
+        font-size: 1.8vh;
     }
 }
 
-/* Media query for mobile landscape view */
-@media (max-width: 480px) and (orientation: landscape) {
-    .background {
-        background-size: cover;
-        background-repeat: repeat-y;
+@media (aspect-ratio: 4/3) {
+    nav ul li a {
+        padding: 1vh 2vw;
+        font-size: 1.8vh;
     }
 }
 
 /* Transparent background class */
 .transparent-background {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 5px;
+    padding: 1vh;
+    border-radius: 0.5vh;
 }
 
 /* Transparent nav class */
 .transparent-nav {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px;
-    border-radius: 5px;
+    padding: 0.5vh;
+    border-radius: 0.5vh;
 }
 
 /* Footer styles */
 footer {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 2vh;
     text-align: center;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
 }

@@ -81,4 +81,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 blogContentElement.innerHTML = '<p>Failed to load blog feed. Please try again later.</p>';
             });
     }
+
+    // Function to handle aspect ratio scaling
+    function handleAspectRatioScaling() {
+        const aspectRatio = window.innerWidth / window.innerHeight;
+        const elementsToScale = document.querySelectorAll('.scale-aspect-ratio');
+
+        elementsToScale.forEach(element => {
+            element.style.width = `${aspectRatio * 100}vw`;
+            element.style.height = `${aspectRatio * 100}vh`;
+        });
+    }
+
+    // Call the handleAspectRatioScaling function on window resize
+    window.addEventListener('resize', handleAspectRatioScaling);
+
+    // Initial call to handleAspectRatioScaling
+    handleAspectRatioScaling();
 });
