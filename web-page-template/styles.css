@@ -123,3 +123,10 @@ nav ul li {
     padding: 10px;
     border-radius: 5px;
 }
+
+/* Transparent nav class */
+.transparent-nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+}
