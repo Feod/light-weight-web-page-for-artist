@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
             contentElement.innerHTML = document.getElementById('store').innerHTML;
         } else if (section === 'blog') {
             fetchTumblrBlogFeed();
+        } else if (section === 'sudoku') {
+            contentElement.innerHTML = document.getElementById('sudoku').innerHTML;
         }
     }
 
@@ -59,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
         handleMenuSelection(event);
     });
 
+    document.getElementById('sudoku-link').addEventListener('click', function(event) {
+        updateContent('sudoku');
+        handleMenuSelection(event);
+    });
+
     // Function to fetch and display Tumblr blog feed
     function fetchTumblrBlogFeed() {
         const blogContentElement = document.getElementById('blog-content');
@@ -98,4 +105,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial call to handleAspectRatioScaling
     handleAspectRatioScaling();
+
+    // Function to handle sudoku logic
+    function handleSudokuLogic() {
+        const sudokuGrid = document.querySelectorAll('.sudoku-grid input');
+
+        sudokuGrid.forEach(cell => {
+            cell.addEventListener('input', function() {
+                const value = this.value;
+                if (!/^[1-9]$/.test(value)) {
+                    this.value = '';
+                }
+            });
+        });
+    }
+
+    // Call the handleSudokuLogic function
+    handleSudokuLogic();
 });

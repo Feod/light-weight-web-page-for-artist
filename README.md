@@ -44,3 +44,13 @@ To configure the Tumblr blog feed, follow these steps:
 ## Using the Blog Section
 
 The blog section is included in the `index.html` file with an id of `blog`. To view the blog feed, click on the "Blog" link in the navigation menu. The blog feed will be fetched and displayed in the `blog` section.
+
+## Sudoku Feature
+
+The sudoku feature is included in the `index.html` file with an id of `sudoku`. To use the sudoku feature, follow these steps:
+
+1. Open the `index.html` file in a web browser.
+2. Click on the "Sudoku" link in the navigation menu to display the sudoku section.
+3. Enter numbers (1-9) in the input fields to fill in the sudoku grid.
+4. The input fields will only accept numbers from 1 to 9.
+5. The sudoku logic, including validation and solving functionality, is handled by the JavaScript code in `web-page-template/script.js`.
