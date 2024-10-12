@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
             fetchTumblrBlogFeed();
         } else if (section === 'sudoku') {
             contentElement.innerHTML = document.getElementById('sudoku').innerHTML;
+        } else if (section === 'timelapse') {
+            contentElement.innerHTML = document.getElementById('timelapse').innerHTML;
+            fetchAndDisplayTimelapse();
         }
     }
 
@@ -63,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('sudoku-link').addEventListener('click', function(event) {
         updateContent('sudoku');
+        handleMenuSelection(event);
+    });
+
+    document.getElementById('timelapse-link').addEventListener('click', function(event) {
+        updateContent('timelapse');
         handleMenuSelection(event);
     });
 
@@ -122,4 +130,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Call the handleSudokuLogic function
     handleSudokuLogic();
+
+    // Function to fetch and display images in a timelapse format using three.js
+    function fetchAndDisplayTimelapse() {
+        const timelapseContentElement = document.getElementById('timelapse-content');
+        const imageUrls = [];
+        for (let i = 0; i <= 100; i++) {
+            imageUrls.push(`https://www.example.com/snapshot${i}.png`);
+        }
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        timelapseContentElement.appendChild(renderer.domElement);
+
+        const textureLoader = new THREE.TextureLoader();
+        const textures = imageUrls.map(url => textureLoader.load(url));
+        let currentTextureIndex = 0;
+
+        const material = new THREE.MeshBasicMaterial({ map: textures[currentTextureIndex] });
+        const geometry = new THREE.PlaneGeometry(5, 5);
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            currentTextureIndex = (currentTextureIndex + 1) % textures.length;
+            material.map = textures[currentTextureIndex];
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    }
 });

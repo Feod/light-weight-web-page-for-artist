@@ -185,3 +185,13 @@ footer {
     border: 1px solid #ccc;
     background-color: #fff;
 }
+
+/* Styles for the timelapse section */
+#timelapse {
+    display: none;
+    width: 80vw;
+    margin: 2vh auto;
+    padding: 2vh;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
